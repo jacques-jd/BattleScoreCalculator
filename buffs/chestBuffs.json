@@ -1,434 +1,722 @@
-{
-    "C2": {
+[
+    {
+        "id": "C2",
         "name": "Uzi",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "2%",
-        "aSpeed": "2%",
+        "attackPower": "2%",
+        "attackSpeed": "2%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C3": {
+    {
+        "id": "C3",
         "name": "Spell Caster Wand",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "0%",
+        "attackPower": "4%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C5": {
+    {
+        "id": "C5",
         "name": "Ceremonial Baton",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "2%",
-        "aSpeed": "0%",
+        "attackPower": "2%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "2%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C1": {
+    {
+        "id": "C1",
         "name": "Labrys",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "2%",
-        "aSpeed": "0%",
+        "attackPower": "2%",
+        "attackSpeed": "0%",
         "defense": "2%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C4": {
+    {
+        "id": "C4",
         "name": "Blazing Ball",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "2%",
-        "aSpeed": "0%",
+        "attackPower": "2%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "2%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C6": {
+    {
+        "id": "C6",
         "name": "Harmonica",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "2%",
-        "aSpeed": "0%",
+        "attackPower": "2%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "2%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C8": {
+    {
+        "id": "C8",
         "name": "Grenade",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "4%",
+        "attackPower": "4%",
+        "attackSpeed": "4%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C9": {
+    {
+        "id": "C9",
         "name": "Magic Crystal Ball",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "5%",
-        "aSpeed": "0%",
+        "attackPower": "5%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "1%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C11": {
+    {
+        "id": "C11",
         "name": "AI Glasses",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "0%",
+        "attackPower": "4%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "4%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C7": {
+    {
+        "id": "C7",
         "name": "Bow and Arrow",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "0%",
+        "attackPower": "4%",
+        "attackSpeed": "0%",
         "defense": "4%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C10": {
+    {
+        "id": "C10",
         "name": "Punch Glove",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "0%",
+        "attackPower": "4%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "4%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "C12": {
+    {
+        "id": "C12",
         "name": "Bongo",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "4%",
-        "aSpeed": "0%",
+        "attackPower": "4%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "4%",
         "hp": "0%",
         "critical": "0%",
-        "level": "1"
+        "levelReq": "1"
     },
-    "XC2": {
+    {
+        "id": "XC2",
         "name": "Uzi Carbine",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "10%",
-        "aSpeed": "7%",
+        "attackPower": "20%",
+        "attackSpeed": "10%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC3": {
+    {
+        "id": "XC2",
+        "name": "Uzi Carbine",
+        "clan": "Gunslinger",
+        "attackPower": "10%",
+        "attackSpeed": "7%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC3",
         "name": "Epic Spell Wand",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "18%",
-        "aSpeed": "0%",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC5": {
+    {
+        "id": "XC3",
+        "name": "Epic Spell Wand",
+        "clan": "Magician",
+        "attackPower": "18%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC5",
         "name": "Regal Baton",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "20%",
-        "aSpeed": "0%",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "20%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC1": {
+    {
+        "id": "XC5",
+        "name": "Regal Baton",
+        "clan": "Strategist",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "20%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC1",
         "name": "Noble Labrys",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "24%",
-        "aSpeed": "0%",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
+        "defense": "20%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC1",
+        "name": "Noble Labrys",
+        "clan": "Warrior",
+        "attackPower": "24%",
+        "attackSpeed": "0%",
         "defense": "24%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC4": {
+    {
+        "id": "XC4",
         "name": "Fire Ball",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "20%",
-        "aSpeed": "0%",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "20%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC6": {
+    {
+        "id": "XC4",
+        "name": "Fire Ball",
+        "clan": "Manga",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "20%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC6",
         "name": "Echo Harmonica",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "25%",
-        "aSpeed": "0%",
+        "attackPower": "20%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "20%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC6",
+        "name": "Echo Harmonica",
+        "clan": "Musician",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "25%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC8": {
+    {
+        "id": "XC8",
         "name": "Stun Grenade",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "15%",
-        "aSpeed": "10%",
+        "attackPower": "25%",
+        "attackSpeed": "15%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC9": {
+    {
+        "id": "XC8",
+        "name": "Stun Grenade",
+        "clan": "Gunslinger",
+        "attackPower": "15%",
+        "attackSpeed": "10%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC9",
         "name": "Diviner Crystal Ball",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "25%",
-        "aSpeed": "0%",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "6%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC11": {
+    {
+        "id": "XC9",
+        "name": "Diviner Crystal Ball",
+        "clan": "Magician",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "6%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC11",
         "name": "Polarized AI Glasses",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "25%",
-        "aSpeed": "0%",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "25%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC7": {
+    {
+        "id": "XC11",
+        "name": "Polarized AI Glasses",
+        "clan": "Strategist",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "25%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC7",
         "name": "Reflex Bow and Arrow",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "28%",
-        "aSpeed": "0%",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
+        "defense": "25%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC7",
+        "name": "Reflex Bow and Arrow",
+        "clan": "Warrior",
+        "attackPower": "28%",
+        "attackSpeed": "0%",
         "defense": "28%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC10": {
+    {
+        "id": "XC10",
         "name": "Fire Punch Glove",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "25%",
-        "aSpeed": "0%",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "25%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XC12": {
+    {
+        "id": "XC10",
+        "name": "Fire Punch Glove",
+        "clan": "Manga",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "25%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC12",
         "name": "Funky Bongo",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "30%",
-        "aSpeed": "0%",
+        "attackPower": "25%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "25%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "15"
+    },
+    {
+        "id": "XC12",
+        "name": "Funky Bongo",
+        "clan": "Musician",
+        "attackPower": "30%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "30%",
         "hp": "0%",
         "critical": "0%",
-        "level": "15"
+        "levelReq": "15"
     },
-    "XXC2": {
+    {
+        "id": "XXC2",
         "name": "Uzi Pro",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "30%",
-        "aSpeed": "30%",
+        "attackPower": "40%",
+        "attackSpeed": "30%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC3": {
+    {
+        "id": "XXC2",
+        "name": "Uzi Pro",
+        "clan": "Gunslinger",
+        "attackPower": "30%",
+        "attackSpeed": "30%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC3",
         "name": "Elder Spell Wand",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "60%",
-        "aSpeed": "0%",
+        "attackPower": "65%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC5": {
+    {
+        "id": "XXC3",
+        "name": "Elder Spell Wand",
+        "clan": "Magician",
+        "attackPower": "60%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC5",
         "name": "Royal Scepter",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "40%",
-        "aSpeed": "0%",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "40%",
         "critical": "0%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC1": {
+    {
+        "id": "XXC5",
+        "name": "Royal Scepter",
+        "clan": "Strategist",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "40%",
+        "critical": "0%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC1",
         "name": "Merciless Labrys",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "55%",
-        "aSpeed": "0%",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
+        "defense": "40%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC1",
+        "name": "Merciless Labrys",
+        "clan": "Warrior",
+        "attackPower": "55%",
+        "attackSpeed": "0%",
         "defense": "55%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC4": {
+    {
+        "id": "XXC4",
         "name": "Lightning Ball",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "40%",
-        "aSpeed": "0%",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "40%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC6": {
+    {
+        "id": "XXC4",
+        "name": "Lightning Ball",
+        "clan": "Manga",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "40%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC6",
         "name": "Bass Harmonica",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "60%",
-        "aSpeed": "0%",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "40%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "35"
+    },
+    {
+        "id": "XXC6",
+        "name": "Bass Harmonica",
+        "clan": "Musician",
+        "attackPower": "60%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "60%",
         "hp": "0%",
         "critical": "0%",
-        "level": "35"
+        "levelReq": "35"
     },
-    "XXC8": {
+    {
+        "id": "XXC8",
         "name": "Incendiary Grenade",
         "clan": "Gunslinger",
-        "quantity": "0",
-        "aPower": "25%",
-        "aSpeed": "15%",
+        "attackPower": "50%",
+        "attackSpeed": "35%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "30"
+        "levelReq": "30"
     },
-    "XXC9": {
+    {
+        "id": "XXC8",
+        "name": "Incendiary Grenade",
+        "clan": "Gunslinger",
+        "attackPower": "25%",
+        "attackSpeed": "15%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC9",
         "name": "Oracle Crystal Ball",
         "clan": "Magician",
-        "quantity": "0",
-        "aPower": "40%",
-        "aSpeed": "0%",
+        "attackPower": "75%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "15%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC9",
+        "name": "Oracle Crystal Ball",
+        "clan": "Magician",
+        "attackPower": "40%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "18%",
         "hp": "0%",
         "critical": "0%",
-        "level": "30"
+        "levelReq": "30"
     },
-    "XXC11": {
+    {
+        "id": "XXC11",
         "name": "Spy AI Glasses",
         "clan": "Strategist",
-        "quantity": "0",
-        "aPower": "35%",
-        "aSpeed": "0%",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "50%",
+        "critical": "0%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC11",
+        "name": "Spy AI Glasses",
+        "clan": "Strategist",
+        "attackPower": "35%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "25%",
         "critical": "0%",
-        "level": "30"
+        "levelReq": "30"
     },
-    "XXC7": {
+    {
+        "id": "XXC7",
         "name": "Longbow and Arrow",
         "clan": "Warrior",
-        "quantity": "0",
-        "aPower": "30%",
-        "aSpeed": "0%",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
+        "defense": "50%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC7",
+        "name": "Longbow and Arrow",
+        "clan": "Warrior",
+        "attackPower": "30%",
+        "attackSpeed": "0%",
         "defense": "30%",
         "regen": "0%",
         "hp": "0%",
         "critical": "0%",
-        "level": "30"
+        "levelReq": "30"
     },
-    "XXC10": {
+    {
+        "id": "XXC10",
         "name": "Spike Punch Glove",
         "clan": "Manga",
-        "quantity": "0",
-        "aPower": "50%",
-        "aSpeed": "0%",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "0%",
         "hp": "0%",
         "critical": "50%",
-        "level": "30"
+        "levelReq": "30"
     },
-    "XXC12": {
+    {
+        "id": "XXC10",
+        "name": "Spike Punch Glove",
+        "clan": "Manga",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "0%",
+        "hp": "0%",
+        "critical": "50%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC12",
         "name": "Party Bongo",
         "clan": "Musician",
-        "quantity": "0",
-        "aPower": "35%",
-        "aSpeed": "0%",
+        "attackPower": "50%",
+        "attackSpeed": "0%",
+        "defense": "0%",
+        "regen": "50%",
+        "hp": "0%",
+        "critical": "0%",
+        "levelReq": "30"
+    },
+    {
+        "id": "XXC12",
+        "name": "Party Bongo",
+        "clan": "Musician",
+        "attackPower": "35%",
+        "attackSpeed": "0%",
         "defense": "0%",
         "regen": "35%",
         "hp": "0%",
         "critical": "0%",
-        "level": "30"
+        "levelReq": "30"
     }
-}
+]

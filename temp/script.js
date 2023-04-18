@@ -295,21 +295,21 @@ function convertToJson(csv) {
         return buff;
     }).filter((buff) => !buff.includes("") && buff.length > 0 && !buff.includes("Clan"));
 
-    let json =  {};
+    let json =  [];
 
     processed.map((buff) => {
-        json[buff[0]] = {
+        json.push({
+            id: buff[0],
             name: buff[1],
             clan: buff[2],
-            quantity: buff[3],
-            aPower: buff[4],
-            aSpeed: buff[5],
+            attackPower: buff[4],
+            attackSpeed: buff[5],
             defense: buff[6],
             regen: buff[7],
             hp: buff[8],
             critical: buff[9],
-            level: buff[10]
-        };
+            levelReq: buff[10]
+        });
     });
 
     return json;
@@ -318,12 +318,12 @@ function convertToJson(csv) {
 let jsonChestBuffs = convertToJson(chestBuffs);
 let jsonSilverBuffs = convertToJson(silverBuffs);
 
-fs.writeFile("chestBuffs.json", JSON.stringify(jsonChestBuffs), (err) => {
+fs.writeFile("buffs/chestBuffs.json", JSON.stringify(jsonChestBuffs), (err) => {
     if(err) throw err;
     console.log("Chest buffs saved!");
 });
 
-fs.writeFile("silverBuffs.json", JSON.stringify(jsonSilverBuffs), (err) => {
+fs.writeFile("buffs/silverBuffs.json", JSON.stringify(jsonSilverBuffs), (err) => {
     if(err) throw err;
     console.log("Silver buffs saved!");
 });
