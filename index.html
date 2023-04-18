@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Piggy Battle Simulator</title>
     <style>
-        .grid {
+        .grid, #piggy>ul {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 1rem;
@@ -15,6 +15,8 @@
     </style>
     <script>
         window.addEventListener("load", () => {
+            document.querySelector("#hidden").style.display = "none";
+
             let results = document.querySelector("#results");
 
             let piggy = {
@@ -130,22 +132,46 @@
         }
 
         let displayResults = scores => { 
+            document.querySelector("#hidden").style.display = "block";
             let results = document.querySelector("#results");
             let totalScore = parseFloat(scores.atkScore) + parseFloat(scores.defScore);
-            results.textContent = `Attack Score: ${scores.atkScore}
-            Defense Score: ${scores.defScore}
-            Total Score: ${totalScore}`;
+            results.innerHTML = `<p>Attack Score: <b>${scores.atkScore}</b></p>
+            <p>Defense Score: <b>${scores.defScore}</b></p>
+            <p>Total Score: <b>${totalScore}</b></p>`;
+        }
+
+        let getBuffs = () => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://piggy.gg/buffs?character_id=C1', true);
+            xhr.responseType = 'document';
+            xhr.send();
+            xhr.onload = function(e) {  
+                var doc = e.target.responseXML;
+            }
         }
 
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="card container mt-4 p-4">
         <h1>Piggy Battle Simulator</h1>
         <!-- Piggy Battle Simulator. Form inputs:
         AP, AS, DEF, REG, HP, CRIT -->
-        <div class="form-item mb-3">
+        <div class="form-item my-3">
             <button type="submit" class="btn btn-primary" id="fillOut">Fill out w/ Joe</button>
+        </div>
+        <div class="buff-flex">
+            <div class="form-item">
+                <select id="buff1" class="form-select">
+                    <option value="0">None</option>
+                    <option value="1">AP</option>
+                    <option value="2">AS</option>
+                    <option value="3">DEF</option>
+                    <option value="4">REG</option>
+                    <option value="5">HP</option>
+                    <option value="6">CRIT</option>
+                </select>
+            </div>
         </div>
         <div class="grid">
             <div class="form-item mb-3 ">
@@ -176,9 +202,10 @@
         <div class="form-item mb-3">
             <button type="submit" class="btn btn-primary" id="submit">Simulate</button>
         </div>
-        <div class="inline card" id="piggy">
-        </div>
         <h2>Results</h2>
+        <p id="hidden" class="m-3">Piggy Stats Used:</p>
+        <div id="piggy" class="m-3">
+        </div>
         <div class="m-3" id="results">
 
         </div>
