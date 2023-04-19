@@ -220,14 +220,23 @@ let getChestBuffs = () => {
 let getBuffs = async () => {
     let chestBuffs = await getChestBuffs();
     let silverBuffs = await getSilverBuffs();
+    let exBuffs = await getExBuffs();
+
     return [
         ...chestBuffs,
-        ...silverBuffs
+        ...silverBuffs,
+        ...exBuffs,
     ].sort((a, b) => a.clan.localeCompare(b.clan) || a.levelReq - b.levelReq);
 }
 
 let getSilverBuffs = () => {
     return fetch('./buffs/silverBuffs.json')
+    .then((response) => response.json())
+    .then((json) => { return json });
+}
+
+let getExBuffs = () => {
+    return fetch('./buffs/exBuffs.json')
     .then((response) => response.json())
     .then((json) => { return json });
 }

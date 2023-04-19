@@ -1,0 +1,122 @@
+[
+    {
+        "id": "EX1",
+        "name": "Thunder Blade",
+        "clan": "EX",
+        "attackPower": 1.20,
+        "attackSpeed": 0,
+        "defense": 0,
+        "regen": 0.3,
+        "hp": 0.7,
+        "critical": 0.08,
+        "levelReq": 9
+    },
+    {
+        "id": "EX2",
+        "name": "Golden Reaver",
+        "clan": "EX",
+        "attackPower": 0.8,
+        "attackSpeed": 0,
+        "defense": 1,
+        "regen": 1,
+        "hp": 1.5,
+        "critical": 0.5,
+        "levelReq": 20
+    },
+    {
+        "id": "EX3",
+        "name": "Golden Fire Ball",
+        "clan": "EX",
+        "attackPower": 0,
+        "attackSpeed": 0,
+        "defense": 0.3,
+        "regen": 0.3,
+        "hp": 1,
+        "critical": 0.9,
+        "levelReq": 11
+    },
+    {
+        "id": "EX4",
+        "name": "Bomber Drone",
+        "clan": "EX",
+        "attackPower": 0.7,
+        "attackSpeed": 0.1,
+        "defense": 0,
+        "regen": 0.1,
+        "hp": 1.3,
+        "critical": 0.7,
+        "levelReq": 18
+    },
+    {
+        "id": "EX5",
+        "name": "Vengeance Claw",
+        "clan": "EX",
+        "attackPower": 1,
+        "attackSpeed": 0.12,
+        "defense": 0,
+        "regen": 0,
+        "hp": 1.2,
+        "critical": 0.5,
+        "levelReq": 13
+    },
+    {
+        "id": "EX6",
+        "name": "Gravity Gun",
+        "clan": "EX",
+        "attackPower": 1,
+        "attackSpeed": 0,
+        "defense": 0.6,
+        "regen": 0.5,
+        "hp": 0.5,
+        "critical": 0.5,
+        "levelReq": 16
+    },
+    {
+        "id": "EX7",
+        "name": "Mystery Box",
+        "clan": "EX",
+        "attackPower": 0,
+        "attackSpeed": 0.7,
+        "defense": 0.7,
+        "regen": 0.7,
+        "hp": 1,
+        "critical": 0.6,
+        "levelReq": 10
+    },
+    {
+        "id": "EX8",
+        "name": "Nunchuck",
+        "clan": "EX",
+        "attackPower": 0.85,
+        "attackSpeed": 0.2,
+        "defense": 0,
+        "regen": 0.65,
+        "hp": 1.25,
+        "critical": 0,
+        "levelReq": 12
+    },
+    {
+        "id": "EX9",
+        "name": "Wicked Mask",
+        "clan": "EX",
+        "attackPower": 0.3,
+        "attackSpeed": 0,
+        "defense": 0.3,
+        "regen": 0.75,
+        "hp": 1.15,
+        "critical": 0.7,
+        "levelReq": 14
+    },
+    {
+        "id": "EX10",
+        "name": "The Fury",
+        "clan": "EX",
+        "attackPower": 0.75,
+        "attackSpeed": 0.16,
+        "defense": 0.25,
+        "regen": 0.35,
+        "hp": 1,
+        "critical": 0,
+        "levelReq": 12
+    }
+]
