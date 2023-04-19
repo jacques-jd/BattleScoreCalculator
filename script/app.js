@@ -50,6 +50,17 @@ window.addEventListener("load", () => {
             document.querySelector("#buff2").value = "XXBX2";
             document.querySelector("#buff3").value = "XXBX4";
             document.querySelector("#buff4").value = "EX5";
+        } else if (who === "scion") {
+            form.ap.value = 324.9113;
+            form.as.value = 3.0266;
+            form.def.value = 390.9266;
+            form.reg.value = 77.3198;
+            form.hp.value = 4612.5334;
+            form.crit.value = 63.3906;
+            document.querySelector("#buff1").value = "XXB20";
+            document.querySelector("#buff2").value = "XXBX2";
+            document.querySelector("#buff3").value = "XXBX4";
+            document.querySelector("#buff4").value = "EX5";
         }
     }
 
@@ -59,6 +70,10 @@ window.addEventListener("load", () => {
 
     document.querySelector("#jessiefill").addEventListener("click", e => {
         fillout("jessie");
+    });
+
+    document.querySelector("#scionfill").addEventListener("click", e => {
+        fillout("scion");
     });
 
     document.querySelector("#submit").addEventListener("click", e => {
