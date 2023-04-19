@@ -27,13 +27,38 @@ window.addEventListener("load", () => {
         crit: document.querySelector("#crit")
     };
 
-    document.querySelector("#fillOut").addEventListener("click", e => {
-        form.ap.value = 138.1681;
-        form.as.value = 1.6561;
-        form.def.value = 160.2064;
-        form.reg.value = 32.55;
-        form.hp.value = 2140.3867;
-        form.crit.value = 31.5136;
+    let fillout = who => {
+        if(who==="joe") {
+            form.ap.value = 138.1681;
+            form.as.value = 1.6561;
+            form.def.value = 160.2064;
+            form.reg.value = 32.55;
+            form.hp.value = 2140.3867;
+            form.crit.value = 31.5136;
+            document.querySelector("#buff1").value = "XC8";
+            document.querySelector("#buff2").value = "BX2";
+            document.querySelector("#buff3").value = "XC10";
+            document.querySelector("#buff4").value = "EX5";
+        } else if (who === "jessie") {
+            form.ap.value = 315.6892;
+            form.as.value = 3.0303;
+            form.def.value = 364.676;
+            form.reg.value = 71.8089;
+            form.hp.value = 4468.9877;
+            form.crit.value = 57.9275;
+            document.querySelector("#buff1").value = "XXB20";
+            document.querySelector("#buff2").value = "XXBX2";
+            document.querySelector("#buff3").value = "XXBX4";
+            document.querySelector("#buff4").value = "EX5";
+        }
+    }
+
+    document.querySelector("#joefill").addEventListener("click", e => {
+        fillout("joe");
+    });
+
+    document.querySelector("#jessiefill").addEventListener("click", e => {
+        fillout("jessie");
     });
 
     document.querySelector("#submit").addEventListener("click", e => {
@@ -145,6 +170,9 @@ let calculatePiggyBattle = piggy => {
         boost.critical += buff.critical;
     }
 
+    // let's say we have a 9% as feed aswell
+    boost.critical += 0.1;
+
     piggy.ap += piggy.ap *= boost.attackPower;
     piggy.as += piggy.as *= boost.attackSpeed;
     piggy.def += piggy.def *= boost.defense;
@@ -156,8 +184,8 @@ let calculatePiggyBattle = piggy => {
     let atkScore = 0;
 
     for (let i = 0; i < 10; i++) {
-        let critMultiplier = 0.5 * Math.floor(piggy.crit / 100);
-        let bonusCrit = 0.5 + 0.5 * Math.floor(piggy.crit / 100);
+        let critMultiplier = 1 * Math.floor(piggy.crit / 100);
+        let bonusCrit = 0.5 + 1 * Math.floor(piggy.crit / 100);
         let finalCritMultiplier = 1 + critMultiplier;
 
         // gets the last 2 digits of the crit
@@ -244,13 +272,13 @@ let getBuffs = async () => {
 }
 
 let getSilverBuffs = () => {
-    return fetch('./buffs/silverBuffs.json')
+    return fetch('/buffs/silverBuffs.json')
     .then((response) => response.json())
     .then((json) => { return json });
 }
 
 let getExBuffs = () => {
-    return fetch('./buffs/exBuffs.json')
+    return fetch('/buffs/exBuffs.json')
     .then((response) => response.json())
     .then((json) => { return json });
 }
