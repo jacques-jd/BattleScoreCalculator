@@ -1,7 +1,11 @@
 .grid, #piggy>ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.grid>*, #piggy>ul>* {
+    flex: 0 1 30%;
 }
 
 .buff-flex {
@@ -11,5 +15,13 @@
 }
 
 .buff-flex > * {
-    flex: 0 0 23%;
+    flex: 0 0 22%;
+}
+
+li {
+    list-style: none;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius:3px;
+    margin: 1em;
+    padding: 1em;
 }

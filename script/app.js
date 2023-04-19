@@ -1,8 +1,6 @@
 let buffTable = [];
 
 window.addEventListener("load", () => {
-    document.querySelector("#hidden").style.display = "none";
-
     getBuffs().then(buffs => {
         buffTable = buffs;
         populateBuffTables(buffs);
@@ -188,7 +186,24 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
         if(key === "buffs") continue;
 
         let li = document.createElement("li");
-        li.innerHTML = `${key.toUpperCase()}: <b>${piggy[key]}</b>` + (oldPiggy[key] !== piggy[key] ? ` (+${((piggy[key] / oldPiggy[key]) * 100 - 100).toFixed(2)}%)` : "");
+        // https://piggy.gg/images/stats/attack_power.png
+
+        let icons = {
+            ap: "https://piggy.gg/images/stats/attack_power.png",
+            as: "https://piggy.gg/images/stats/attack_speed.png",
+            def: "https://piggy.gg/images/stats/defence.svg",
+            reg: "https://piggy.gg/images/stats/regeneration.png",
+            hp: "https://piggy.gg/images/stats/health_points.png",
+            crit: "https://piggy.gg/images/stats/critical_rate.png"
+        }
+
+        li.innerHTML = `<img width=14 src="${icons[key]}" alt="${key.toUpperCase()}" />
+            ${key.toUpperCase()}: <b>${piggy[key]}</b>` 
+            + (
+                oldPiggy[key] !== piggy[key] 
+                ? ` (+${((piggy[key] / oldPiggy[key]) * 100 - 100).toFixed(2)}%)` 
+                : ""
+            );
 
         ul.appendChild(li);
     }
@@ -203,12 +218,11 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
 }
 
 let displayResults = scores => { 
-    document.querySelector("#hidden").style.display = "block";
     let results = document.querySelector("#results");
     let totalScore = parseFloat(scores.atkScore) + parseFloat(scores.defScore);
     results.innerHTML = `<p>Attack Score: <b>${scores.atkScore}</b></p>
     <p>Defense Score: <b>${scores.defScore}</b></p>
-    <p>Total Score: <b>${totalScore}</b></p>`;
+    <h3>Total Score: <b>${totalScore}</b></h3>`;
 }
 
 let getChestBuffs = () => {
