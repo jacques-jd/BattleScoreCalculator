@@ -162,23 +162,22 @@ let calculatePiggyBattle = piggy => {
     }
 
     for(let buff of piggy.buffs) {
-        boost.attackPower += buff.attackPower;
-        boost.attackSpeed += buff.attackSpeed;
-        boost.defense += buff.defense;
-        boost.regen += buff.regen;
-        boost.hp += buff.hp;
-        boost.critical += buff.critical;
+        if (boost.attackPower == 0) boost.attackPower = buff.attackPower; else boost.attackPower *= (1 + buff.attackPower);
+        if (boost.attackSpeed == 0) boost.attackSpeed = buff.attackSpeed; else boost.attackSpeed *= (1 + buff.attackSpeed);
+        if (boost.defense == 0) boost.defense = buff.defense; else boost.defense *= 1 + buff.defense;
+        if (boost.regen == 0) boost.regen = buff.regen; else boost.regen *= 1 + buff.regen;
+        if (boost.hp == 0) boost.hp = buff.hp; else boost.hp *= 1 + buff.hp;
+        if (boost.critical == 0) boost.critical = buff.critical; else boost.critical *= 1 + buff.critical;
     }
 
-    // let's say we have a 9% as feed aswell
-    boost.critical += 0.1;
+    piggy.ap = piggy.ap * (1 + boost.attackPower);
+    piggy.as = piggy.as * (1 + boost.attackSpeed);
+    piggy.def = piggy.def * (1 + boost.defense);
+    piggy.reg = piggy.reg * (1 + boost.regen);
+    piggy.hp = piggy.hp * (1 + boost.hp);
+    piggy.crit = piggy.crit * (1 + boost.critical);
 
-    piggy.ap += piggy.ap *= boost.attackPower;
-    piggy.as += piggy.as *= boost.attackSpeed;
-    piggy.def += piggy.def *= boost.defense;
-    piggy.reg += piggy.reg *= boost.regen;
-    piggy.hp += piggy.hp *= boost.hp;
-    piggy.crit += piggy.crit *= boost.critical;
+    
 
     let defScore = piggy.hp + (piggy.def * 3) + (piggy.reg * 10);
     let atkScore = 0;
@@ -248,9 +247,14 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
 let displayResults = scores => { 
     let results = document.querySelector("#results");
     let totalScore = parseFloat(scores.atkScore) + parseFloat(scores.defScore);
-    results.innerHTML = `<p>Attack Score: <b>${scores.atkScore}</b></p>
-    <p>Defense Score: <b>${scores.defScore}</b></p>
-    <h3>Total Score: <b>${totalScore}</b></h3>`;
+    results.innerHTML = `
+    <h3
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="This top tooltip is themed via CSS variables."
+    >Total Score: ${(totalScore/1000).toFixed(2)}k</h3>
+    <p>Attack Score: <b>${scores.atkScore}</b></p>
+    <p>Defense Score: <b>${scores.defScore}</b></p>`;
 }
 
 let getChestBuffs = () => {
