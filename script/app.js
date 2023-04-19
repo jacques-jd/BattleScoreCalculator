@@ -153,31 +153,29 @@ let calculatePiggyBattle = piggy => {
     oldPiggy = {...piggy};
 
     boost = {
-        attackPower: 0,
-        attackSpeed: 0,
-        defense: 0,
-        regen: 0,
-        hp: 0,
-        critical: 0
+        attackPower: 1,
+        attackSpeed: 1,
+        defense: 1,
+        regen: 1,
+        hp: 1,
+        critical: 1
     }
 
     for(let buff of piggy.buffs) {
-        if (boost.attackPower == 0) boost.attackPower = buff.attackPower; else boost.attackPower *= (1 + buff.attackPower);
-        if (boost.attackSpeed == 0) boost.attackSpeed = buff.attackSpeed; else boost.attackSpeed *= (1 + buff.attackSpeed);
-        if (boost.defense == 0) boost.defense = buff.defense; else boost.defense *= 1 + buff.defense;
-        if (boost.regen == 0) boost.regen = buff.regen; else boost.regen *= 1 + buff.regen;
-        if (boost.hp == 0) boost.hp = buff.hp; else boost.hp *= 1 + buff.hp;
-        if (boost.critical == 0) boost.critical = buff.critical; else boost.critical *= 1 + buff.critical;
+        boost.attackPower *= 1 + buff.attackPower;
+        boost.attackSpeed *= 1 + buff.attackSpeed;
+        boost.defense *= 1 + buff.defense;
+        boost.regen *= 1 + buff.regen;
+        boost.hp *= 1 + buff.hp;
+        boost.critical *= 1 + buff.critical;
     }
 
-    piggy.ap = piggy.ap * (1 + boost.attackPower);
-    piggy.as = piggy.as * (1 + boost.attackSpeed);
-    piggy.def = piggy.def * (1 + boost.defense);
-    piggy.reg = piggy.reg * (1 + boost.regen);
-    piggy.hp = piggy.hp * (1 + boost.hp);
-    piggy.crit = piggy.crit * (1 + boost.critical);
-
-    
+    piggy.ap = piggy.ap * boost.attackPower;
+    piggy.as = piggy.as * boost.attackSpeed;
+    piggy.def = piggy.def * boost.defense;
+    piggy.reg = piggy.reg * boost.regen;
+    piggy.hp = piggy.hp * boost.hp;
+    piggy.crit = piggy.crit * boost.critical;
 
     let defScore = piggy.hp + (piggy.def * 3) + (piggy.reg * 10);
     let atkScore = 0;
@@ -213,6 +211,7 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
         if(key === "buffs") continue;
 
         let li = document.createElement("li");
+        li.className = "card";
         // https://piggy.gg/images/stats/attack_power.png
 
         let icons = {

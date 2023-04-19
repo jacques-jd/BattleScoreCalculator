@@ -321,6 +321,8 @@ function convertToJson(csv) {
         });
     });
 
+    json.reverse();
+
     json = json.filter((value, index, self) =>
         index === self.findIndex((t) => (
             t.id == value.id
