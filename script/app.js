@@ -1,6 +1,8 @@
 let buffTable = [];
 
 window.addEventListener("load", () => {
+    document.querySelector("#detailedResultsBtn").hidden = true;
+
     getBuffs().then(buffs => {
         buffTable = buffs;
         populateBuffTables(buffs);
@@ -192,8 +194,55 @@ let calculatePiggyBattle = piggy => {
     piggy.hp = piggy.hp * boost.hp;
     piggy.crit = piggy.crit * boost.critical;
 
+    let piggyAttackBreakdown = calculatePiggyAttack(piggy, true);
+
     let defScore = piggy.hp + (piggy.def * 3) + (piggy.reg * 10);
+    let atkScore = piggyAttackBreakdown.score;
+
+    let scores = {atkScore: atkScore.toFixed(4), defScore: defScore.toFixed(4)};
+
+    displayCalculatedPiggyStats(oldPiggy, piggy);
+    displayBreakdown(scores, piggyAttackBreakdown.possibilities);
+
+    return scores;
+}
+
+let calculatePiggyAttack = (piggy, breakdown = false) => {
     let atkScore = 0;
+    let possibilities = [
+        0,0
+    ];
+
+    if(breakdown) {
+        for(let i = 0; i < 10; i++) {
+            let critMultiplier = 0.5 * Math.floor(piggy.crit / 100);
+            let bonusCrit = 0.5 + 0.5 * Math.floor(piggy.crit / 100);
+            let finalCritMultiplier = 1 + critMultiplier;
+
+            // gets the last 2 digits of the crit
+            let critChance = piggy.crit % 100;
+
+            //LOWEST POSSIBLE SCORE: NO EXTRA CRIT IS APPLIED AT ALL
+            // if (Math.random() * 100 <= critChance) {
+            //    finalCritMultiplier += bonusCrit;
+            //}
+            possibilities[0] += ((piggy.ap * piggy.as) * finalCritMultiplier);
+        }
+
+        for(let i = 0; i < 10; i++) {
+            let critMultiplier = 0.5 * Math.floor(piggy.crit / 100);
+            let bonusCrit = 0.5 + 0.5 * Math.floor(piggy.crit / 100);
+            let finalCritMultiplier = 1 + critMultiplier;
+
+            // gets the last 2 digits of the crit
+            let critChance = piggy.crit % 100;
+
+            //HIGHEST POSSIBLE SCORE: EXTRA CRIT IS APPLIED TO EVERY ATTACK
+            finalCritMultiplier += bonusCrit;
+
+            possibilities[1] += ((piggy.ap * piggy.as) * finalCritMultiplier);
+        }
+    }
 
     for (let i = 0; i < 10; i++) {
         let critMultiplier = 0.5 * Math.floor(piggy.crit / 100);
@@ -210,10 +259,16 @@ let calculatePiggyBattle = piggy => {
 
         atkScore += ((piggy.ap * piggy.as) * finalCritMultiplier);
     }
-
-    displayCalculatedPiggyStats(oldPiggy, piggy);
-
-    return {atkScore: atkScore.toFixed(4), defScore: defScore.toFixed(4)};
+    if(!breakdown)
+        return atkScore;
+    
+    return {
+        score: atkScore,
+        possibilities: {
+            min: Math.min(...possibilities),
+            max: Math.max(...possibilities)
+        }
+    }
 }
 
 let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
@@ -259,15 +314,38 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
 }
 
 let displayResults = scores => { 
-    let results = document.querySelector("#results");
+    document.querySelector("#detailedResultsBtn").hidden = false;
+    let results = document.querySelector("#totalScore");
+    let detailedResults = document.querySelector("#detailedResults");
     let totalScore = parseFloat(scores.atkScore) + parseFloat(scores.defScore);
 
     let totalFormattedScore = totalScore > 1000000 ? (totalScore/1000000).toFixed(2) + "m" : (totalScore/1000).toFixed(2) + "k";
 
     results.innerHTML = `
-    <h3>Total Score: ${totalFormattedScore}</h3>
+    <h3>Total Score: ${totalFormattedScore}</h3>`;
+}
+
+let displayBreakdown = (scores, possibilities) => {
+    let detailedResults = document.querySelector("#detailedResults");
+    let lowestTotalScore = parseFloat(possibilities.min) + parseFloat(scores.defScore);
+    let highestTotalScore = parseFloat(possibilities.max) + parseFloat(scores.defScore);
+
+    let lowestTotalFormattedScore = 
+    lowestTotalScore > 1000000 
+    ? (lowestTotalScore/1000000).toFixed(2) + "m" 
+    : (lowestTotalScore/1000).toFixed(2) + "k";
+
+    let highestTotalFormattedScore =
+    highestTotalScore > 1000000
+    ? (highestTotalScore/1000000).toFixed(2) + "m"
+    : (highestTotalScore/1000).toFixed(2) + "k";
+
+    detailedResults.innerHTML = `
     <p>Attack Score: <b>${scores.atkScore}</b></p>
-    <p>Defense Score: <b>${scores.defScore}</b></p>`;
+    <p>Defence Score: <b>${scores.defScore}</b></p>
+    <p>Highest Possible Total Score: <b>${highestTotalFormattedScore}</b></p>
+    <p>Lowest Possible Total Score: <b>${lowestTotalFormattedScore}</b></p>
+    `;
 }
 
 let getChestBuffs = () => {
