@@ -181,8 +181,8 @@ let calculatePiggyBattle = piggy => {
     let atkScore = 0;
 
     for (let i = 0; i < 10; i++) {
-        let critMultiplier = 1 * Math.floor(piggy.crit / 100);
-        let bonusCrit = 0.5 + 1 * Math.floor(piggy.crit / 100);
+        let critMultiplier = 0.5 * Math.floor(piggy.crit / 100);
+        let bonusCrit = 0.5 + 0.5 * Math.floor(piggy.crit / 100);
         let finalCritMultiplier = 1 + critMultiplier;
 
         // gets the last 2 digits of the crit
