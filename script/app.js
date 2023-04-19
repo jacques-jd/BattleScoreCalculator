@@ -246,12 +246,11 @@ let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
 let displayResults = scores => { 
     let results = document.querySelector("#results");
     let totalScore = parseFloat(scores.atkScore) + parseFloat(scores.defScore);
+
+    let totalFormattedScore = totalScore > 1000000 ? (totalScore/1000000).toFixed(2) + "m" : (totalScore/1000).toFixed(2) + "k";
+
     results.innerHTML = `
-    <h3
-        data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="This top tooltip is themed via CSS variables."
-    >Total Score: ${(totalScore/1000).toFixed(2)}k</h3>
+    <h3>Total Score: ${totalFormattedScore}k</h3>
     <p>Attack Score: <b>${scores.atkScore}</b></p>
     <p>Defense Score: <b>${scores.defScore}</b></p>`;
 }
