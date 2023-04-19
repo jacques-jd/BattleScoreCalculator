@@ -1,12 +1,12 @@
+let buffTable = [];
+
 window.addEventListener("load", () => {
     document.querySelector("#hidden").style.display = "none";
-
-    let buffTable = {};
 
     getBuffs().then(buffs => {
         buffTable = buffs;
         populateBuffTables(buffs);
-    })
+    });
 
     let results = document.querySelector("#results");
 
@@ -55,25 +55,34 @@ window.addEventListener("load", () => {
 
 let populateBuffTables = buffs => {
     //this will populate the select form with all the buffs
-    let chestBuffs = buffs.chestBuffs;
-    let silverBuffs = buffs.silverBuffs;
 
-    let allBuffs = [
-        ...silverBuffs,
-        ...chestBuffs
-    ];
-    
-    allBuffs.sort((a, b) => a.clan.localeCompare(b.clan) || a.levelReq - b.levelReq);
+    buffs.unshift({
+        id: "none", 
+        name: "None", 
+        clan: "None",
+        attackPower: 0,
+        attackSpeed: 0,
+        defense: 0,
+        regen: 0,
+        hp: 0,
+        critical: 0,
+        levelReq: 0
+    });
 
     // there are 4 buff selects. They are all under .buffList, but they are also known as #buff1, #buff2, #buff3, #buff4
     // This will make sure each select has a list of all buffs available (both chest and silver buffs)
     let buffLists = document.querySelectorAll(".buffList");
 
     buffLists.forEach(buffList => {
-        for(let buff of allBuffs) {
+        for(let buff of buffs) {
             let option = document.createElement("option");
             option.value = buff.id;
-            option.textContent = `[ ${buff.clan} ] ${buff.id} - ${buff.name}`;
+
+            if(buff.id === "none") 
+                option.textContent = "None";
+            else
+                option.textContent = `[ ${buff.clan} ] ${buff.id} - ${buff.name}`;
+
             buffList.appendChild(option);
         }
     });
@@ -98,7 +107,15 @@ let validateFormValues = form => {
 }
 
 let savePiggyStats = (piggy, form) => {
-    let piggyStats = document.querySelector("#piggy")
+    piggy.buffs = [];
+
+    let buffLists = document.querySelectorAll(".buffList");
+
+    for(let buffList of buffLists) {
+        let buff = buffList.value;
+        let buffObj = buffTable.find(b => b.id === buff);
+        piggy.buffs.push(buffObj);
+    }
 
     piggy.ap = parseFloat(form.ap.value);
     piggy.as = parseFloat(form.as.value);
@@ -106,28 +123,37 @@ let savePiggyStats = (piggy, form) => {
     piggy.reg = parseFloat(form.reg.value);
     piggy.hp = parseFloat(form.hp.value);
     piggy.crit = parseFloat(form.crit.value);
-
-    let statValues = [];
-    let ul = document.createElement("ul");
-
-    //dynamically creating a string while fetching the stats 
-    for (let key in piggy) {
-        let li = document.createElement("li");
-        li.textContent = `${key.toUpperCase()}: ${piggy[key]}`;
-
-        ul.appendChild(li);
-    }
-    
-    //gonna clear out piggyStats first
-    while(piggyStats.firstChild) {
-        piggyStats.removeChild(piggyStats.firstChild);
-    }
-
-    //adding the stats
-    piggyStats.appendChild(ul);
 }
 
 let calculatePiggyBattle = piggy => {
+    //before doing calculations, we need to add the buffs to the piggy stats
+    oldPiggy = {...piggy};
+
+    boost = {
+        attackPower: 0,
+        attackSpeed: 0,
+        defense: 0,
+        regen: 0,
+        hp: 0,
+        critical: 0
+    }
+
+    for(let buff of piggy.buffs) {
+        boost.attackPower += buff.attackPower;
+        boost.attackSpeed += buff.attackSpeed;
+        boost.defense += buff.defense;
+        boost.regen += buff.regen;
+        boost.hp += buff.hp;
+        boost.critical += buff.critical;
+    }
+
+    piggy.ap += piggy.ap *= boost.attackPower;
+    piggy.as += piggy.as *= boost.attackSpeed;
+    piggy.def += piggy.def *= boost.defense;
+    piggy.reg += piggy.reg *= boost.regen;
+    piggy.hp += piggy.hp *= boost.hp;
+    piggy.crit += piggy.crit *= boost.critical;
+
     let defScore = piggy.hp + (piggy.def * 3) + (piggy.reg * 10);
     let atkScore = 0;
 
@@ -147,7 +173,33 @@ let calculatePiggyBattle = piggy => {
         atkScore += ((piggy.ap * piggy.as) * finalCritMultiplier);
     }
 
+    displayCalculatedPiggyStats(oldPiggy, piggy);
+
     return {atkScore: atkScore.toFixed(4), defScore: defScore.toFixed(4)};
+}
+
+let displayCalculatedPiggyStats = (oldPiggy, piggy) => {
+    let piggyStats = document.querySelector("#piggy");
+
+    let ul = document.createElement("ul");
+
+    //dynamically creating a string while fetching the stats 
+    for (let key in piggy) {
+        if(key === "buffs") continue;
+
+        let li = document.createElement("li");
+        li.innerHTML = `${key.toUpperCase()}: <b>${piggy[key]}</b>` + (oldPiggy[key] !== piggy[key] ? ` (+${((piggy[key] / oldPiggy[key]) * 100 - 100).toFixed(2)}%)` : "");
+
+        ul.appendChild(li);
+    }
+    
+    //gonna clear out piggyStats first
+    while(piggyStats.firstChild) {
+        piggyStats.removeChild(piggyStats.firstChild);
+    }
+
+    //adding the stats
+    piggyStats.appendChild(ul);
 }
 
 let displayResults = scores => { 
@@ -168,10 +220,10 @@ let getChestBuffs = () => {
 let getBuffs = async () => {
     let chestBuffs = await getChestBuffs();
     let silverBuffs = await getSilverBuffs();
-    return {
-        chestBuffs,
-        silverBuffs
-    }
+    return [
+        ...chestBuffs,
+        ...silverBuffs
+    ].sort((a, b) => a.clan.localeCompare(b.clan) || a.levelReq - b.levelReq);
 }
 
 let getSilverBuffs = () => {
