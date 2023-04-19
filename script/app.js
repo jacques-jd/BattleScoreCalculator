@@ -250,7 +250,7 @@ let displayResults = scores => {
     let totalFormattedScore = totalScore > 1000000 ? (totalScore/1000000).toFixed(2) + "m" : (totalScore/1000).toFixed(2) + "k";
 
     results.innerHTML = `
-    <h3>Total Score: ${totalFormattedScore}k</h3>
+    <h3>Total Score: ${totalFormattedScore}</h3>
     <p>Attack Score: <b>${scores.atkScore}</b></p>
     <p>Defense Score: <b>${scores.defScore}</b></p>`;
 }
