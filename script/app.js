@@ -54,23 +54,25 @@ window.addEventListener("load", () => {
 
 let populateBuffTables = buffs => {
     //this will populate the select form with all the buffs
-    let chestBuffs = buffs.chestBuffs.sort((a, b) => a.clan.localeCompare(b.clan));
+    let chestBuffs = buffs.chestBuffs;
     let silverBuffs = buffs.silverBuffs;
 
-    let allBuffs = {
+    let allBuffs = [
         ...silverBuffs,
         ...chestBuffs
-    }
+    ];
+    
+    allBuffs.sort((a, b) => a.clan.localeCompare(b.clan) || a.levelReq - b.levelReq);
 
     // there are 4 buff selects. They are all under .buffList, but they are also known as #buff1, #buff2, #buff3, #buff4
     // This will make sure each select has a list of all buffs available (both chest and silver buffs)
     let buffLists = document.querySelectorAll(".buffList");
 
     buffLists.forEach(buffList => {
-        for(let buffCode in allBuffs) {
+        for(let buff of allBuffs) {
             let option = document.createElement("option");
-            option.value = buffCode;
-            option.textContent = `[ ${allBuffs[buffCode].clan} ] ${buffCode} - ${allBuffs[buffCode].name}`;
+            option.value = buff.id;
+            option.textContent = `[ ${buff.clan} ] ${buff.id} - ${buff.name}`;
             buffList.appendChild(option);
         }
     });

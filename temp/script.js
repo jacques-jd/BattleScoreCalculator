@@ -312,6 +312,12 @@ function convertToJson(csv) {
         });
     });
 
+    json = json.filter((value, index, self) =>
+        index === self.findIndex((t) => (
+            t.id == value.id
+        ))
+    );
+
     return json;
 }
 
@@ -327,9 +333,6 @@ fs.writeFile("buffs/silverBuffs.json", JSON.stringify(jsonSilverBuffs), (err) =>
     if(err) throw err;
     console.log("Silver buffs saved!");
 });
-
-console.log(jsonChestBuffs);
-console.log(jsonSilverBuffs);
 
 
 
