@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
     let results = document.querySelector("#results");
 
     let piggy = {
+        buffs: [],
         ap: 0,
         as: 0,
         def: 0,

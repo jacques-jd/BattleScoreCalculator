@@ -292,6 +292,15 @@ function convertToJson(csv) {
         if(buff[0] === '' || !isNaN(buff[0])) 
             buff.shift();
 
+        buff = buff.map((value) => {
+            if(value.endsWith("%")) {
+                value = value.replace("%", "")
+                value = parseInt(value) / 100;
+            } 
+            
+            return value;
+        });
+
         return buff;
     }).filter((buff) => !buff.includes("") && buff.length > 0 && !buff.includes("Clan"));
 
